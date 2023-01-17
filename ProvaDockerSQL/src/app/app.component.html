@@ -1,0 +1,20 @@
+<a routerLink="/">Home</a>
+<a routerLink="/about">About</a>
+<a routerLink="/contact">Contact</a>
+
+
+<router-outlet></router-outlet>
+
+
+<!--
+  
+  In the component files you can use the ActivatedRoute to get the parameters that are passed in the routes.
+  import { ActivatedRoute } from '@angular/router';
+
+constructor(private route: ActivatedRoute) { }
+
+ngOnInit() {
+  this.route.paramMap.subscribe(params => {
+    console.log(params.get('id'));
+  });
+}-->
