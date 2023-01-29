@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'Categoria', component: CategoriaComponent },
+  { path: 'Verifiche', component: VerificaComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -14,6 +14,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
-  declarations: [HomeComponent, AboutComponent, ContactComponent, PageNotFoundComponent]
+  declarations: [LoginComponent, CategoriaComponent, VerificaComponent, PageNotFoundComponent]
 })
 export class AppRoutingModule { }
