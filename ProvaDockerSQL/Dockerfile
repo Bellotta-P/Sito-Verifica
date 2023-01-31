@@ -1,27 +1,27 @@
-# Use an official Node.js runtime as the base image
+# utilizzo un runtime Node.js ufficiale come immagine di base
 FROM node:14
 
-# Create a directory for the application
+# Creo una directory per l'applicazione
 RUN mkdir -p /usr/src/app
 
-# Change the working directory
+# Cambio la directory di lavoro
 WORKDIR /usr/src/app
 
-# Copy the requirements.txt file
+# Copio il requirements.txt file
 COPY requirements.txt .
 
-# Install the Python dependencies
+# Installo le dipendenze di Python
 RUN pip install -r requirements.txt
 
-# Copy the rest of the Flask application files
+# Copiare il resto dei file dell'applicazione Flask
 COPY . .
 
-# Copy the built Angular application files to the Flask static folder
+# Copiare i file dell'applicazione Angular costruita nella cartella statica di Flask
 COPY --from=node /usr/src/app/dist/ /usr/src/app/static/
 
-# Expose the port the application will run on
+# Rendiamo pubblica la porta su cui verrà eseguita l'applicazione
 EXPOSE 5000
 
-# Start the Flask application
+# Iniziao l'applicazione FLASK
 CMD ["python", "app.py"]
 

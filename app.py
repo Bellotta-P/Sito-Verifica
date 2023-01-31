@@ -19,7 +19,7 @@ app.secret_key = 'xyzsdfg'
 
 
 def connection():
-    conn = pymssql.connect(server='213.140.22.237\SQLEXPRESS', user='bellotta.pietro', password='xx123##', database='')
+    conn = pymssql.connect(server='213.140.22.237\SQLEXPRESS', user='bellotta.pietro', password='xx123##', database='bellotta.pietro')
     return conn
 
 
@@ -31,17 +31,17 @@ CORS(app)
 
 @app.route('/docenti')
 def docenti():
-    # Crea una connessione
+        # Crea una connessione
     conn = connection()
-    # Crea un cursore
+        # Crea un cursore
     cur = conn.cursor(as_dict=True)
-    # Esegue la query di SQL
+        # Esegue la query di SQL
     cur.execute("SELECT * FROM Docenti")
-    # Raccoglie tutte le righe
+        # Raccoglie tutte le righe
     list_users = cur.fetchall()
     return jsonify(list_users)
     resp = jsonify(list_users)
-    # Ritorna un json.dumps
+        # Ritorna un json.dumps
     resp = json_util.dumps(list_users)
     return Response(resp, mimetype='application/json')
 
