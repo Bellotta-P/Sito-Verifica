@@ -1,29 +1,17 @@
 import { Component } from '@angular/core';
-// importa- 
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
-})
-export class LoginComponent {
-  id: string | undefined;
-  nome: any;
+import { Router } from '@angular/router';
 
-  /*  
-  Da riadattare per estrapolare informazioni
-  ngOnInit(): void {
-  }
-  
-  submit(query: HTMLInputElement): void {
-    if (!query.value) {
-      return;
+import { AccountService } from '@app/_services';
+
+@Component({ templateUrl: 'layout.component.html' })
+export class LayoutComponent {
+    constructor(
+        private router: Router,
+        private accountService: AccountService
+    ) {
+        // redirect to home if already logged in
+        if (this.accountService.userValue) {
+            this.router.navigate(['/']);
+        }
     }
-    this.query = query.value;
-    this.obs = this.*metodo*(this.query);
-    this.obs.subscribe((data: any) => {
-      this.*metodo* = data;
-      console.log(this.*metodo*);
-    });
-  }
-  /*
 }
